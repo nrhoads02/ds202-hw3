@@ -10,6 +10,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+data<-read.csv("gapminder-5060 (1).csv")
 
+country.subset = c("Australia")
+data1 = data[data$country %in% country.subset, ]
+ggplot(data=data1 ,aes(x=lifeExp,y=gdpPercap,group=country))+
+  geom_line()+
+  geom_point() + ggtitle("Life Expectancy by GDP per capita in Australia")
 ```
 
